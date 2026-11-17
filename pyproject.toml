@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsa-python-notes"
+version = "0.1.0"
+description = "Алгоритмический тренажёр на Python с автопроверкой решений (pytest + CLI)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ilya" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+dsa-trainer = "dsa_trainer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dsa_trainer = ["catalog.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "solutions", "tasks"]
+pythonpath = ["src"]
+addopts = "-q --strict-markers -m 'not todo'"
+markers = [
+    "todo: задача ещё не решена (пустой todo.py) — пропускается по умолчанию",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]

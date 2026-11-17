@@ -1,0 +1,11 @@
+# Все текстовые файлы в репозитории — ровно с LF:
+# так `ruff format --check` и pre-commit одинаково работают на Windows и в CI.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.whl binary

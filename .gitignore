@@ -1,0 +1,29 @@
+# .idea, .vscode, кэши Python и личные результаты тренировок.
+.idea/
+.vscode/
+*.swp
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Журнал прогресса (см. dsa-trainer stats) — личное, не в git.
+.dsa_progress.json
+
+# Временная папка для черновиков.
+_scratch/
+
+# Файлы, которые создают тесты/решения при запуске.
+*.log
+numbers.txt
+sales.csv
+error.log
+image_copy.jpg

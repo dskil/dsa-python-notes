@@ -1,0 +1,778 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "slug": "strings_01",
+      "topic": "Строки",
+      "title": "Удалить цифры и посчитать длину",
+      "description": "Дана строка. Удалить из неё все цифры и посчитать длину полученной строки.\n\nРеализуй:\n- strip_digits(text) -> str — строка без цифр (порядок остальных символов сохраняется);\n- digits_free_length(text) -> int — длина результата.\n\nЦифрами считаются символы, для которых symbol.isdigit() истинно (значит, и арабские, и кириллические цифры вроде '١').",
+      "status": "solved",
+      "source": "Train1.py"
+    },
+    {
+      "id": 2,
+      "slug": "bitops_02",
+      "topic": "Битовые операции",
+      "title": "Двоичная запись: единицы и нули",
+      "description": "Перевести число в двоичную систему, посчитать количество единиц и нулей.\n\n- to_binary(n) -> str — двоичная запись без префикса 0b;\n- count_ones(n) -> int — единицы;\n- count_zeros(n) -> int — нули (ведущих нулей не считаем: 2534 -> '100111100110').\n\nПодсказка: bin(n) уже возвращает str вида '0b1010'.",
+      "status": "solved",
+      "source": "Train2.py"
+    },
+    {
+      "id": 3,
+      "slug": "numbers_03",
+      "topic": "Числа",
+      "title": "Делители числа",
+      "description": "Вывести все делители числа, кроме 1 и самого числа.\n\n- proper_divisors(n) -> list[int] — по возрастанию, без повторов;\n- count_proper_divisors(n) -> int — их количество.\n\nОптимально: перебирать делители до math.isqrt(n), добавляя пару d и n // d. Для n = 36 ответ [2, 3, 4, 6, 9, 12, 18], но такие тесты должны работать за миллисекунды.",
+      "status": "solved",
+      "source": "Train3.py"
+    },
+    {
+      "id": 4,
+      "slug": "lists_04",
+      "topic": "Списки",
+      "title": "Соседние пары: нечётные, сумма кратна 5",
+      "description": "В файле последовательность целых чисел от 1 до 10 000. Считаем пары СОСЕДНИХ элементов.\n\n- count_special_pairs(numbers) -> int — сколько пар, где оба числа нечётные, а сумма кратна 5;\n- max_special_pair_sum(numbers) -> int — максимальная сумма среди таких пар (0, если пар нет).\n\nПример: [15, 20, 25, 30, 35, 45]. Подходит только пара (35, 45): оба нечётные, сумма 80 кратна 5. Ответ: count = 1, max = 80.",
+      "status": "solved",
+      "source": "Train4.py"
+    },
+    {
+      "id": 5,
+      "slug": "numbers_05",
+      "topic": "Числа",
+      "title": "Числа ровно с 6 делителями",
+      "description": "- count_divisors(n) -> int — количество делителей;\n- numbers_with_divisor_count(start, end, divisors=6) -> list[int].\n\nЛовушка исходника: числа вида p·q с простыми p ≠ q имеют 4 делителя, а p·q·r (три простых сомножителя) — 8; ровно 6 делителей дают p²·q или p⁵. Для [100; 200] таких чисел 9.",
+      "status": "solved",
+      "source": "Train5.py"
+    },
+    {
+      "id": 6,
+      "slug": "strings_06",
+      "topic": "Строки",
+      "title": "Самая длинная подстрока из цифр",
+      "description": "Дана строка из латиницы и цифр. Найдите самую длинную непрерывную подстроку, состоящую только из цифр.\n\n- longest_digit_run(text) -> str;\n- longest_digit_run_length(text) -> int.\n\nПример: 'a1b23c456de7f8901g45h6'.\nОсторожно: '8901' (4 цифры) длиннее, чем '456' (3) — исходная программа выводила '456', это ошибка.",
+      "status": "solved",
+      "source": "Train6.py"
+    },
+    {
+      "id": 7,
+      "slug": "bitops_07",
+      "topic": "Битовые операции",
+      "title": "Числа с ровно 3 единицами в двоичной записи",
+      "description": "Найдите количество натуральных чисел x из [start; end], для которых в двоичной записи ровно `ones` единиц.\n\n- numbers_with_ones(start, end, ones=3) -> list[int];\n- count_numbers_with_ones(start, end, ones=3) -> int.\n\nПример: числа из [8; 10]: 8 = 1000 (1 ед.), 9 = 1001 (2), 10 = 1010 (2).",
+      "status": "solved",
+      "source": "Train7.py"
+    },
+    {
+      "id": 8,
+      "slug": "lists_08",
+      "topic": "Списки",
+      "title": "Второе по величине число",
+      "description": "Найти второе по величине (различное) число в списке.\n\n- second_largest(numbers) -> int;\n- если различных значений меньше двух — ValueError.\n\nПример: [5, 3, 9, 1, 9] -> 5. Осторожно: [7, 7, 7] -> ValueError.",
+      "status": "solved",
+      "source": "Train8.py"
+    },
+    {
+      "id": 9,
+      "slug": "strings_09",
+      "topic": "Строки",
+      "title": "Палиндром без пробелов и регистра",
+      "description": "Проверить, является ли строка палиндромом, игнорируя пробелы, регистр и знаки пунктуации.\n\n- normalize(text) -> str — оставить только буквы и цифры в нижнем регистре;\n- is_palindrome_loose(text) -> bool — нормализованная строка — палиндром и не пуста.\n\n'А роза упала на лапу Азора' -> True, 'No lemon, no melon' -> True, '   ' -> False.",
+      "status": "solved",
+      "source": "Train9.py"
+    },
+    {
+      "id": 10,
+      "slug": "strings_10",
+      "topic": "Строки",
+      "title": "Генератор паролей",
+      "description": "Пользователь вводит длину пароля. Пароль должен содержать минимум: строчную латинскую букву, заглавную, цифру и спецсимвол.\n\n- generate_password(length=12, alphabet=...) -> str;\n- has_all_categories(password) -> bool;\n- для length < 4 — ValueError;\n- использовать модуль secrets, а не random.\n\nТест проверяет 200 паролей: длина и наличие минимум по одному символу каждой категории.",
+      "status": "solved",
+      "source": "Train10.py"
+    },
+    {
+      "id": 11,
+      "slug": "lists_11",
+      "topic": "Списки",
+      "title": "Пересечение двух списков",
+      "description": "Даны два списка чисел. Найти общие элементы и вывести их в порядке возрастания (без повторов). Если общих элементов нет — строка 'Пусто'.\n\n- intersection(numbers1, numbers2) -> list[int];\n- format_intersection(numbers1, numbers2) -> str.\n\nПодсказка: set(a) & set(b).",
+      "status": "solved",
+      "source": "StringRandomTrain/Train11.py"
+    },
+    {
+      "id": 12,
+      "slug": "strings_12",
+      "topic": "Строки",
+      "title": "Случайный логин",
+      "description": "Сгенерировать случайный логин длины 8 из строчных латинских букв и цифр.\n\n- make_login(length=8, alphabet=...) -> str;\n- для length <= 0 — ValueError.\n\nВ отличие от исходника (random), используй secrets — логины тоже не должны быть предсказуемы.",
+      "status": "solved",
+      "source": "StringRandomTrain/Train12.py"
+    },
+    {
+      "id": 13,
+      "slug": "strings_13",
+      "topic": "Строки",
+      "title": "Цифры и знаки пунктуации",
+      "description": "Посчитать в строке количество цифр и количество знаков пунктуации (string.punctuation).\n\n- count_digits_and_punctuation(text) -> tuple[int, int] — (цифры, пунктуация).\n\nТесты сверяют результат со строкой 'Цифр: X' / 'Символы: Y' исходной программы.",
+      "status": "solved",
+      "source": "StringRandomTrain/Train13.py"
+    },
+    {
+      "id": 14,
+      "slug": "strings_14",
+      "topic": "Строки",
+      "title": "Оставить только латиницу и цифры",
+      "description": "Из строки 'Привет! Как дела? Python3.0' оставить только латинские буквы и цифры.\n\n- keep_ascii_alnum(text) -> str;\n- кириллица, пробелы, знаки — удаляются.\n\nРезультат для примера: 'Python30'.",
+      "status": "solved",
+      "source": "StringRandomTrain/Train14.py"
+    },
+    {
+      "id": 15,
+      "slug": "strings_15",
+      "topic": "Строки",
+      "title": "Пароль ровно из 10 символов",
+      "description": "Пароль фиксированной длины 10 должен содержать минимум одну цифру и минимум один спецсимвол.\n\n- generate_password() -> str;\n- использовать secrets, а не random.\n\nТест прогоняет генератор 200 раз.",
+      "status": "solved",
+      "source": "StringRandomTrain/Train15.py"
+    },
+    {
+      "id": 16,
+      "slug": "files_16",
+      "topic": "Файлы",
+      "title": "Запись чисел, сумма, дозапись",
+      "description": "Работа с файлом чисел (по одному в строке).\n\n- write_range(path, start, stop) — перезаписать файл числами start..stop включительно;\n- sum_linked_file(path) -> int — сумма чисел;\n- append_range(path, start, stop) — дописать числа в конец.\n\nВместо имени файла тесты передают путь во временной папке pytest — не хардкодь 'numbers.txt'.",
+      "status": "solved",
+      "source": "FilesTrain/Train16.py"
+    },
+    {
+      "id": 17,
+      "slug": "files_17",
+      "topic": "Файлы",
+      "title": "Безопасное чтение строк",
+      "description": "Прочитать файл построчно в список строк без символов перевода строки.\n\n- read_lines_safe(filename) -> list[str];\n- если файла нет — не падать, вернуть [].\n\nРабота с любым путём (str или pathlib.Path).",
+      "status": "solved",
+      "source": "FilesTrain/Train17.py"
+    },
+    {
+      "id": 18,
+      "slug": "files_18",
+      "topic": "Файлы",
+      "title": "Чтение с обработкой ошибок",
+      "description": "Прочитать текст файла, обработав ошибки собственными исключениями.\n\n- класс ReadError(Exception) — база;\n- FileNotFoundReadError(ReadError), PermissionReadError(ReadError);\n- read_text_checked(path) -> str — поднимает одно из них.\n\nПравило: перехватывать FileNotFoundError и PermissionError, а не всё подряд (никаких голых except).",
+      "status": "solved",
+      "source": "FilesTrain/Train18.py"
+    },
+    {
+      "id": 19,
+      "slug": "files_19",
+      "topic": "Файлы",
+      "title": "Количество строк в файле",
+      "description": "Посчитать количество строк в файле.\n\n- count_lines(filename) -> int.\n\nПоследняя строка без '\\n' тоже считается строкой; пустой файл — 0.",
+      "status": "solved",
+      "source": "FilesTrain/Train19.py"
+    },
+    {
+      "id": 20,
+      "slug": "files_20",
+      "topic": "Файлы",
+      "title": "Чтение файла порциями",
+      "description": "Читать файл кусками по chunk_size СИМВОЛОВ (текстовый режим UTF-8 — русская буква не должна разрезаться пополам).\n\n- read_chunks(filename, chunk_size=1024) -> list[str];\n- для chunk_size <= 0 — ValueError.\n\nИсходник использовал глобальный цикл, здесь важно оформить это как функцию с параметрами.",
+      "status": "solved",
+      "source": "FilesTrain/Train20.py"
+    },
+    {
+      "id": 21,
+      "slug": "files_21",
+      "topic": "Файлы",
+      "title": "Побайтовое копирование",
+      "description": "Скопировать файл порциями по block_size байт.\n\n- copy_binary(source, target, block_size=4096) -> int — вернуть число скопированных байт;\n- target перезаписывается, если существовал;\n- для block_size <= 0 — ValueError.",
+      "status": "solved",
+      "source": "Train21.py"
+    },
+    {
+      "id": 22,
+      "slug": "files_22",
+      "topic": "Файлы",
+      "title": "Байты и hex",
+      "description": "Записать байты в файл и получить их hex-представление.\n\n- to_hex(raw: bytes) -> str — hex в нижнем регистре;\n- read_hex(filename) -> str — содержимое файла в hex.\n\nПример: b'\\x00\\x01\\x02\\x03\\xFF' -> '00010203ff'.",
+      "status": "solved",
+      "source": "Train23.py"
+    },
+    {
+      "id": 23,
+      "slug": "strings_23",
+      "topic": "Строки",
+      "title": "Случайный выбор и shuffle",
+      "description": "Тренировка на module random с поддержкой seed (второй аргумент rng) для воспроизводимых тестов.\n\n- pick_random(sequence, rng=None) — случайный элемент, пустой список — ValueError;\n- shuffle_copy(sequence, rng=None) -> list — перемешанная копия, исходный не меняется;\n- generated_numbers(count, low, high, rng=None) -> list[int].\n\nНе мутировать входные данные — частая ошибка, которую тесты ловят.",
+      "status": "solved",
+      "source": "StringRandomTrain"
+    },
+    {
+      "id": 24,
+      "slug": "files_24",
+      "topic": "Файлы",
+      "title": "tell() и seek()",
+      "description": "Прочитать строки position + 1 и position + 2 без символов '\\n'.\n\n- reread_line(filename, position=0) -> tuple[str, str];\n- если строки нет — IndexError.\n\nВ исходнике позиция запоминалась f.tell(), затем f.seek() — здесь важен сам навык позиционирования в файле.",
+      "status": "solved",
+      "source": "Train24.py"
+    },
+    {
+      "id": 25,
+      "slug": "files_25",
+      "topic": "Файлы",
+      "title": "Последние байты файла",
+      "description": "Прочитать последние count байт файла.\n\n- read_tail_bytes(filename, count) -> bytes;\n- если файл короче — вернуть весь файл;\n- для count < 0 — ValueError.\n\nПодсказка: f.seek(-count, 2) не работает при коротком файле — нужен максимум с нулём.",
+      "status": "solved",
+      "source": "Train25.py"
+    },
+    {
+      "id": 26,
+      "slug": "files_26",
+      "topic": "Файлы",
+      "title": "Замена в файле",
+      "description": "Заменить подстроку во всём содержимом файла.\n\n- replace_in_file(filename, old, new) -> int — количество замен;\n- файл перезаписывается целиком, путь может быть str или Path.",
+      "status": "solved",
+      "source": "Train26.py"
+    },
+    {
+      "id": 27,
+      "slug": "files_27",
+      "topic": "Файлы",
+      "title": "Временный файл",
+      "description": "Записать байты во временный файл и прочитать их обратно.\n\n- write_and_read_temp(payload=b'temp data') -> tuple[str, bytes, str] — (имя файла, содержимое, hex);\n- после выхода файл удаляется автоматически (tempfile.NamedTemporaryFile).",
+      "status": "solved",
+      "source": "Train27.py"
+    },
+    {
+      "id": 28,
+      "slug": "files_28",
+      "topic": "Файлы",
+      "title": "Фильтрация лога по уровню",
+      "description": "Из лога вида '2024-01-01 10:00:01 [ERROR] Boom' отобрать строки с нужным уровнем.\n\n- filter_level(lines, level='ERROR') -> list[str];\n- уровень — второй токен строки в квадратных скобках;\n- битые строки (меньше трёх токенов) не должны ронять функцию.\n\nИсходник умел только ERROR; обобщи уровнем как параметром.",
+      "status": "solved",
+      "source": "Train28.py"
+    },
+    {
+      "id": 29,
+      "slug": "files_29",
+      "topic": "Файлы",
+      "title": "CSV: выручка по товарам",
+      "description": "В CSV колонки product, quantity, price. Посчитать выручку каждого товара.\n\n- revenue_by_product(path) -> dict[str, int];\n- для пустого файла — {}.\n\nИспользуй csv.DictReader вместо ручного разбора индексов.",
+      "status": "solved",
+      "source": "Train29.py"
+    },
+    {
+      "id": 30,
+      "slug": "files_30",
+      "topic": "Файлы",
+      "title": "Информация об изображении",
+      "description": "Вывести ширину, высоту и режим изображения (Pillow).\n\n- get_image_info(filename) -> tuple[int, int, str];\n- если это не картинка — ValueError;\n- если файла нет — FileNotFoundError.\n\nPillow необязателен: без него тест помечается skip, а функция поднимает RuntimeError.",
+      "status": "solved",
+      "source": "Train30.py"
+    },
+    {
+      "id": 31,
+      "slug": "recursion_31",
+      "topic": "Рекурсия",
+      "title": "Факториал",
+      "description": "Вычислить n! рекурсивно.\n\n- factorial(n) -> int;\n- 0! = 1;\n- для n < 0 — ValueError.",
+      "status": "solved",
+      "source": "Recursion/Train31.py"
+    },
+    {
+      "id": 32,
+      "slug": "recursion_32",
+      "topic": "Рекурсия",
+      "title": "Фибоначчи (наивная рекурсия)",
+      "description": "n-е число Фибоначчи: F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2).\n\n- fib(n) -> int;\n- для n < 0 — ValueError.\n\nЭто O(φ^n) — так и задумано; сравни с задачей №44.",
+      "status": "solved",
+      "source": "Recursion/Train32.py"
+    },
+    {
+      "id": 33,
+      "slug": "recursion_33",
+      "topic": "Рекурсия",
+      "title": "Сумма цифр числа",
+      "description": "Сумма цифр неотрицательного числа, только рекурсией (без str).\n\n- digit_sum(n) -> int;\n- цифры берём через n % 10 и n // 10;\n- для n < 0 — ValueError.",
+      "status": "solved",
+      "source": "Recursion/Train33.py"
+    },
+    {
+      "id": 34,
+      "slug": "recursion_34",
+      "topic": "Рекурсия",
+      "title": "Пути: +1 и ×2 (DP)",
+      "description": "Сколько способов дойти от start до end шагами +1 и ×2, причём ×2 разрешено только из уже достижимой клетки start.\n\n- count_paths(start, end) -> int;\n- 1 <= start <= end, иначе ValueError.\n\nРешается динамикой: dp[i] = dp[i-1] + dp[i/2] (если i чётное и i/2 >= start).\nПроверь на примерах: (1, 5) -> 4, (3, 25) -> 28.",
+      "status": "solved",
+      "source": "Recursion/Train34.py"
+    },
+    {
+      "id": 35,
+      "slug": "recursion_35",
+      "topic": "Рекурсия",
+      "title": "Кузнечик: +1 и +2",
+      "description": "Сколько способов попасть из клетки start в end прыжками на 1 и на 2.\n\n- kuznechik(start, end) -> int;\n- 0 <= start <= end, иначе ValueError;\n- если start == end или end == start + 1 — ровно 1 способ.",
+      "status": "solved",
+      "source": "Recursion/Train35.py"
+    },
+    {
+      "id": 36,
+      "slug": "recursion_36",
+      "topic": "Рекурсия",
+      "title": "Способы дойти (рекурсия)",
+      "description": "Чистая рекурсия без DP: число путей от current до target шагами +1 и +2, пути должны ЗАКАНЧИВАТЬСЯ ровно в target.\n\n- count_ways(current, target) -> int;\n- если current > target — 0, если равно — 1.\n\nПримеры: (1, 3) -> 2 (1→2→3 и 1→3), (1, 5) -> 5.\nСравни с №34/№35: та же идея, разные подходы — это и есть тренажёр.",
+      "status": "solved",
+      "source": "Recursion/Train36.py"
+    },
+    {
+      "id": 37,
+      "slug": "recursion_37",
+      "topic": "Рекурсия",
+      "title": "Сумма 1..n",
+      "description": "Сумма чисел от 1 до n рекурсией.\n\n- sum_to_n(n) -> int;\n- sum_to_n(0) = 0;\n- для n < 0 — ValueError.",
+      "status": "solved",
+      "source": "Recursion/Train37.py"
+    },
+    {
+      "id": 38,
+      "slug": "recursion_38",
+      "topic": "Рекурсия",
+      "title": "Разворот строки",
+      "description": "Развернуть строку рекурсией, без срезов [::-1].\n\n- reverse_string(text) -> str;\n- пустая строка даёт ''.",
+      "status": "solved",
+      "source": "Recursion/Train38.py"
+    },
+    {
+      "id": 39,
+      "slug": "recursion_39",
+      "topic": "Рекурсия",
+      "title": "Сумма цифр (вариант 2)",
+      "description": "Повтор задачи №33 в более компактной форме.\n\n- digit_sum(n) -> int — тернарный оператор вместо if/else;\n- для n < 0 — ValueError.\n\nПовторы полезны: шаблон закрепляется.",
+      "status": "solved",
+      "source": "Recursion/Train39.py"
+    },
+    {
+      "id": 40,
+      "slug": "recursion_40",
+      "topic": "Рекурсия",
+      "title": "Палиндром рекурсией",
+      "description": "Проверить палиндром рекурсивно, сравнивая крайние символы.\n\n- is_palindrome(word) -> bool;\n- пустая строка и строка из одного символа — True.\n\nТолько точное совпадение (без lowercase и пунктуации).",
+      "status": "solved",
+      "source": "Recursion/Train40.py"
+    },
+    {
+      "id": 41,
+      "slug": "recursion_41",
+      "topic": "Рекурсия",
+      "title": "НОД (алгоритм Евклида)",
+      "description": "Наибольший общий делитель рекурсивно.\n\n- gcd(a, b) -> int — всегда неотрицательный;\n- gcd(0, 0) = 0; gcd(0, 5) = 5; gcd(-12, 8) = 4.\n\nРекурсия обязательна (тесты не проверяют реализацию, но цель — алгоритм).",
+      "status": "solved",
+      "source": "Recursion/Train41.py"
+    },
+    {
+      "id": 42,
+      "slug": "recursion_42",
+      "topic": "Рекурсия",
+      "title": "Возведение в степень (линейное)",
+      "description": "base ** exponent рекурсией.\n\n- power(base, exponent) -> int;\n- exponent == 0 -> 1;\n- exponent < 0 -> ValueError.",
+      "status": "solved",
+      "source": "Recursion/Train42.py"
+    },
+    {
+      "id": 43,
+      "slug": "recursion_43",
+      "topic": "Рекурсия",
+      "title": "Количество элементов списка",
+      "description": "Посчитать элементы списка рекурсией через срез items[1:].\n\n- count_items(items) -> int.\n\nЛовушка: рекурсия по 400 элементов должна работать (изучи, как recurse-limits и срезы влияют на сложность).",
+      "status": "solved",
+      "source": "Recursion/Train43.py"
+    },
+    {
+      "id": 44,
+      "slug": "recursion_44",
+      "topic": "Рекурсия",
+      "title": "Фибоначчи с кэшем",
+      "description": "Та же задача, что №32, но через functools.lru_cache.\n\n- fib(n) -> int;\n- fib(500) должен считаться мгновенно;\n- для n < 0 — ValueError.",
+      "status": "solved",
+      "source": "Recursion/Train44.py"
+    },
+    {
+      "id": 45,
+      "slug": "recursion_45",
+      "topic": "Рекурсия",
+      "title": "Сумма вложенных списков",
+      "description": "Сумма всех чисел в произвольно вложенных списках.\n\n- deep_sum(items) -> int;\n- строки и bool не суммируются как числа;\n- [] -> 0.\n\nПример: deep_sum([1, [2, [3, [4]]]]) -> 10.",
+      "status": "solved",
+      "source": "Recursion/Train45.py"
+    },
+    {
+      "id": 46,
+      "slug": "recursion_46",
+      "topic": "Рекурсия",
+      "title": "Бинарный поиск",
+      "description": "Бинарный поиск в отсортированном списке.\n\n- binary_search_recursive(items, target) -> bool — рекурсивный вариант;\n- binary_search_index(items, target) -> int — итеративный, индекс или -1.\n\nСравни сложность: O(log n) против O(n) линейного.",
+      "status": "solved",
+      "source": "Recursion/Train46.py"
+    },
+    {
+      "id": 47,
+      "slug": "recursion_47",
+      "topic": "Рекурсия",
+      "title": "Ханойские башни",
+      "description": "Перенести n дисков с первого стержня на третий.\n\n- hanoi(n, source='A', target='C', aux='B') -> list[tuple[str, str]] — список ходов (откуда, куда);\n- n < 0 -> ValueError;\n- ровно 2**n - 1 ход.\n\nВерни ходы, а не print — так их можно проверить и переиспользовать. Обязательно, чтобы - каждый ход перекладывал один диск, - меньший диск никогда не лежал на большем.",
+      "status": "solved",
+      "source": "Recursion/Train47.py"
+    },
+    {
+      "id": 48,
+      "slug": "recursion_48",
+      "topic": "Рекурсия",
+      "title": "Слияние двух отсортированных списков",
+      "description": "Слить два отсортированных списка в один отсортированный.\n\n- merge(left, right) -> list[int];\n- не изменять входные списки;\n- рекурсивный вариант — как в исходнике, но допускается итеративный (тесты проверяют результат).",
+      "status": "solved",
+      "source": "Recursion/Train48.py"
+    },
+    {
+      "id": 49,
+      "slug": "recursion_49",
+      "topic": "Рекурсия",
+      "title": "Сортировка слиянием",
+      "description": "Реализовать merge_sort на основе merge.\n\n- merge_sort(items) -> list[int];\n- не изменять входной список;\n- пустой список и один элемент — без ошибок.",
+      "status": "solved",
+      "source": "Recursion/Train49.py"
+    },
+    {
+      "id": 50,
+      "slug": "recursion_50",
+      "topic": "Рекурсия",
+      "title": "Все подмножества (power set)",
+      "description": "Вернуть все подмножества списка, включая пустое и само множество.\n\n- power_set(items) -> list[list[int]];\n- порядок задан и проверяется: сначала все подмножества без первого элемента, затем с ним.\n\nДля [1, 2]: [[], [2], [1], [1, 2]].",
+      "status": "solved",
+      "source": "Recursion/Train50.py"
+    },
+    {
+      "id": 51,
+      "slug": "dicts_51",
+      "topic": "Словари",
+      "title": "Частоты букв",
+      "description": "Посчитать, сколько раз встречается каждая буква в слове.\n\n- letter_counts(word) -> dict[str, int] — порядок по первому появлению;\n- letter_counts_counter(word) -> dict[str, int] — через collections.Counter; результаты должны совпадать.",
+      "status": "solved",
+      "source": "Train51.py"
+    },
+    {
+      "id": 52,
+      "slug": "dicts_52",
+      "topic": "Словари",
+      "title": "Базовые операции со словарём",
+      "description": "Отработать get, мутацию, инверсию словаря.\n\n- update_and_check(data, key, delta) -> dict — прибавить к значению, начав с 0, если ключа нет;\n- safe_get(data, key, default=0) -> int;\n- invert(data) -> dict — поменять местами ключ и значение.",
+      "status": "solved",
+      "source": "Train52.py"
+    },
+    {
+      "id": 53,
+      "slug": "dicts_53",
+      "topic": "Словари",
+      "title": "Частоты элементов списка",
+      "description": "Посчитать частоты чисел.\n\n- frequency(numbers) -> dict[int, int];\n- most_common(numbers) -> int — самое частое (при равенстве — меньшее значение), пустой список — ValueError;\n- most_common_counter(numbers) -> int — через Counter.most_common.\n\nСтрогий tie-break делает задачу неоднозначной без спецификации: помни про min(counts, key=lambda x: (-counts[x], x)).",
+      "status": "solved",
+      "source": "Train53.py"
+    },
+    {
+      "id": 54,
+      "slug": "dicts_54",
+      "topic": "Словари",
+      "title": "Самая частая буква",
+      "description": "Найти самую частую букву в слове.\n\n- letter_frequencies(word) -> dict[str, int];\n- most_frequent_letter(word) -> tuple[str, int] — при ничьей первая по алфавиту; пустая строка — ValueError.\n\nДля 'абракадабра' -> ('а', 5).",
+      "status": "solved",
+      "source": "Train54.py"
+    },
+    {
+      "id": 55,
+      "slug": "dicts_55",
+      "topic": "Словари",
+      "title": "Анаграммы",
+      "description": "Проверить, являются ли две строки анаграммами (одна и та же раскладка букв).\n\n- are_anagrams(word1, word2) -> bool;\n- пробелы и регистр учитываются (это строгая проверка);\n- пустые строки анаграммы друг другу.",
+      "status": "solved",
+      "source": "Train55.py"
+    },
+    {
+      "id": 56,
+      "slug": "sets_56",
+      "topic": "Множества",
+      "title": "Общие буквы двух строк",
+      "description": "Вернуть общие буквы двух строк.\n\n- common_letters(text1, text2) -> str;\n- без повторов, в порядке первого появления в text1.\n\nИсходник возвращал set — порядок там не определён. Здесь порядок фиксирован.",
+      "status": "solved",
+      "source": "Train56.py"
+    },
+    {
+      "id": 57,
+      "slug": "sets_57",
+      "topic": "Множества",
+      "title": "Уникальные элементы",
+      "description": "Исходный файл пуст — упражнение на множества.\n\n- unique_in_order(items) -> list[int] — убрать повторы, сохранив порядок первого появления;\n- без set(...) напрямую, иначе порядок потеряется;\n- train56_noisy_letters_count(text) -> int — количество различных символов.",
+      "status": "solved",
+      "source": "Train57.py (пустой — задача придумана)"
+    },
+    {
+      "id": 58,
+      "slug": "recursion_58",
+      "topic": "Рекурсия",
+      "title": "Вложенные списки: глубина и flatten",
+      "description": "Исходный файл пуст — упражнение на рекурсию по вложенным структурам.\n\n- max_depth(items) -> int — максимальная глубина вложенности; [] -> 1;\n- flatten(items) -> list — развернуть в плоский список с сохранением порядка.",
+      "status": "solved",
+      "source": "Train58.py (пустой — задача придумана)"
+    },
+    {
+      "id": 59,
+      "slug": "dicts_59",
+      "topic": "Словари",
+      "title": "Группировка по ключу",
+      "description": "Исходный файл пуст — упражнение на defaultdict.\n\n- group_lengths(words) -> dict[int, list[str]] — сгруппировать слова по длине, внутри группы порядок исходный.",
+      "status": "solved",
+      "source": "Train59.py (пустой — задача придумана)"
+    },
+    {
+      "id": 60,
+      "slug": "numbers_60",
+      "topic": "Числа",
+      "title": "Банкомат (жадный алгоритм)",
+      "description": "Исходный файл пуст — итоговая задача серии.\n\n- withdraw(amount) -> dict[int, int] — сколько купюр каждого номинала отдаст банкомат;\n- номиналы: 5000, 2000, 1000, 500, 200, 100;\n- amount должен быть положительным и кратным 100, иначе ValueError;\n- в словаре только номиналы с ненулевым количеством.\n\nПример: withdraw(7800) -> {5000: 1, 2000: 1, 500: 1, 200: 1, 100: 1}.",
+      "status": "solved",
+      "source": "Train60.py (пустой — задача придумана)"
+    },
+    {
+      "id": 61,
+      "slug": "numbers_61",
+      "topic": "Числа",
+      "title": "Решето Эратосфена",
+      "description": "Все простые числа до limit включительно.\n\n- sieve(limit) -> list[int];\n- limit < 2 -> [];\n- сложность O(n log log n).",
+      "status": "solved",
+      "source": "HSEtasks/numbers/sieve_of_eratosthenes.py"
+    },
+    {
+      "id": 62,
+      "slug": "numbers_62",
+      "topic": "Числа",
+      "title": "Проверка простоты",
+      "description": "Определить, простое ли число.\n\n- is_prime(n) -> bool;\n- n < 2 -> False;\n- исходник перебирал все делители; сделай шаг 6k ± 1 и сравнение с решетом.",
+      "status": "solved",
+      "source": "HSEtasks/numbers/is_prime.py"
+    },
+    {
+      "id": 63,
+      "slug": "numbers_63",
+      "topic": "Числа",
+      "title": "Бинарное возведение в степень",
+      "description": "Возведение в степень за O(log n).\n\n- binpow(base, exponent, modulus=None) -> int;\n- exponent < 0 -> ValueError;\n- результат должен совпадать со встроенным pow(a, n) и pow(a, n, mod).",
+      "status": "solved",
+      "source": "HSEtasks/numbers/binpow.py"
+    },
+    {
+      "id": 64,
+      "slug": "numbers_64",
+      "topic": "Числа",
+      "title": "Разложение на простые множители",
+      "description": "Разложить число на простые множители.\n\n- factorize(n) -> list[int] — по возрастанию, с повторами;\n- n == 1 -> [];\n- n < 1 -> ValueError.",
+      "status": "solved",
+      "source": "HSEtasks/numbers/factorization.py"
+    },
+    {
+      "id": 65,
+      "slug": "numbers_65",
+      "topic": "Числа",
+      "title": "НОД и НОК",
+      "description": "Вычислить НОД и НОК.\n\n- gcd(a, b) -> int;\n- lcm(a, b) -> int — 0, если хотя бы один аргумент 0; для отрицательных положительный результат; gcd(a,b) * lcm(a,b) == |a*b|.",
+      "status": "solved",
+      "source": "HSEtasks/numbers/gcd_and_lcm.py"
+    },
+    {
+      "id": 66,
+      "slug": "bitops_66",
+      "topic": "Битовые операции",
+      "title": "Чётность через бит",
+      "description": "Проверить чётность последним битом.\n\n- is_even(n) -> bool — истинно, если n & 1 == 0;\n- работает и для отрицательных.",
+      "status": "solved",
+      "source": "HSEtasks/numbers/is_even.py"
+    },
+    {
+      "id": 67,
+      "slug": "numbers_67",
+      "topic": "Числа",
+      "title": "Високосные годы на отрезке",
+      "description": "Сколько високосных лет на [left; right].\n\n- leap_years_up_to(year) -> int — количество високосных в 1..year;\n- count_leap_years(left, right) -> int — left > right -> ValueError;\n- O(1), без цикла по годам.\n\nСверка с calendar.isleap в тестах.",
+      "status": "solved",
+      "source": "HSEtasks/numbers/visokosniy_god.py"
+    },
+    {
+      "id": 68,
+      "slug": "numbers_68",
+      "topic": "Числа",
+      "title": "Положительные чётные целые",
+      "description": "Посчитать положительные чётные целые числа в списке.\n\n- is_positive_even_int(value) -> bool — 2.0 считается целым, True нет;\n- count_positive_even_ints(values) -> int.\n\nЛовушка исходника: 2.0 проходит, а bool (True == 1) — нет.",
+      "status": "solved",
+      "source": "HSEtasks/numbers/count_positive_even_ints.py"
+    },
+    {
+      "id": 69,
+      "slug": "strings_69",
+      "topic": "Строки",
+      "title": "Бордер строки (префикс-суффикс)",
+      "description": "Наибольшая длина k, при которой префикс длины k равен суффиксу длины k.\n\n- longest_prefix_suffix_naive(word) -> int — O(n²);\n- prefix_function(word) -> list[int] — pi-функция KMP;\n- longest_prefix_suffix(word) -> int — O(n) через pi.\n\nЭто первый шаг к алгоритму Кнута–Морриса–Пратта.",
+      "status": "solved",
+      "source": "HSEtasks/strings/longest_prefix_suffix.py"
+    },
+    {
+      "id": 70,
+      "slug": "strings_70",
+      "topic": "Строки",
+      "title": "Все ли символы уникальны",
+      "description": "Проверить, что все символы строки различны.\n\n- all_unique(text) -> bool;\n- first_duplicate(text) -> str | None — первый повторяющийся символ.",
+      "status": "solved",
+      "source": "HSEtasks/strings/all_unique.py"
+    },
+    {
+      "id": 71,
+      "slug": "strings_71",
+      "topic": "Строки",
+      "title": "Длина последнего слова",
+      "description": "Длина последнего слова в строке.\n\n- length_of_last_word(text) -> int;\n- кавычки и лишние пробелы по краям не ломают результат; пустой текст — 0.",
+      "status": "solved",
+      "source": "HSEtasks/strings/length_of_last_word.py"
+    },
+    {
+      "id": 72,
+      "slug": "strings_72",
+      "topic": "Строки",
+      "title": "Поиск подстроки",
+      "description": "Найти первое вхождение подстроки.\n\n- find_substring_naive(text, pattern) -> int — O(n·m);\n- find_substring(text, pattern) -> int — str.find (алгоритм Two-Way);\n- пустой pattern -> 0; нет вхождения -> -1.\n\nПример: 'абакадабра' и 'кад' -> 3 (буквы: а-б-а-к-а-д…).",
+      "status": "solved",
+      "source": "HSEtasks/strings/find_substring.py"
+    },
+    {
+      "id": 73,
+      "slug": "strings_73",
+      "topic": "Строки",
+      "title": "Палиндром (простой)",
+      "description": "Проверить, что строка читается одинаково в обе стороны.\n\n- is_palindrome(text) -> bool;\n- без нормализации регистра и пунктуации (сравни с №09).",
+      "status": "solved",
+      "source": "HSEtasks/strings/is_palindrome.py"
+    },
+    {
+      "id": 74,
+      "slug": "strings_74",
+      "topic": "Строки",
+      "title": "Частота самого частого символа",
+      "description": "Сколько раз встречается самый частый символ.\n\n- most_frequent_count(text) -> int;\n- пустая строка -> 0;\n- most_frequent_count_counter(text) -> int — через Counter, результаты должны совпадать.",
+      "status": "solved",
+      "source": "HSEtasks/strings/most_frequent_count.py"
+    },
+    {
+      "id": 75,
+      "slug": "strings_75",
+      "topic": "Строки",
+      "title": "Удалить гласные",
+      "description": "Удалить из строки гласные a e i o u (без учёта регистра).\n\n- remove_vowels(text) -> str;\n- В исходнике сравнивались только строчные — 'AEIOU' проходили; исправь это.",
+      "status": "solved",
+      "source": "HSEtasks/strings/remove_vowels.py"
+    },
+    {
+      "id": 76,
+      "slug": "strings_76",
+      "topic": "Строки",
+      "title": "RLE-сжатие строки",
+      "description": "Сжать строку подряд идущих одинаковых символов.\n\n- compress_string(word) -> str — 'aasssbb' -> 'a2s3b2';\n- decompress_string(encoded) -> str — обратная операция;\n- символы, встречающиеся один раз, без числа; пустая строка -> ''.",
+      "status": "solved",
+      "source": "HSEtasks/strings/compress_string.py"
+    },
+    {
+      "id": 77,
+      "slug": "strings_77",
+      "topic": "Строки",
+      "title": "Сколько предложений в тексте",
+      "description": "Посчитать предложения по ' . ! ?'.\n\n- count_sentences(text) -> int;\n- несколько знаков подряд = один конец предложения ('?!.' -> 1);\n- текст без завершающих знаков не считается предложением.",
+      "status": "solved",
+      "source": "HSEtasks/strings/count_sentences.py"
+    },
+    {
+      "id": 78,
+      "slug": "strings_78",
+      "topic": "Строки",
+      "title": "Методы строк и join",
+      "description": "Отработать strip, split, find, join.\n\n- normalize(text) -> str — убрать пробелы по краям;\n- first_word(text) -> str — первое слово (по запятым и пробелам), пустая строка — ValueError;\n- join_with(words, separator='1') -> str.",
+      "status": "solved",
+      "source": "HSEtasks/basics/strings.py"
+    },
+    {
+      "id": 79,
+      "slug": "strings_79",
+      "topic": "Строки",
+      "title": "Форматирование строк",
+      "description": "Четыре архетипа форматирования: позиционные аргументы, именованные, выравнивание.\n\n- email_greeting(first, second) -> str — формат 'Hello {1}, {0}' через format;\n- price_line(name, price) -> str — цена с двумя знаками:.2f;\n- align(text, width, align='left') -> str — left/right/center через f-string.",
+      "status": "solved",
+      "source": "HSEtasks/basics/format.py"
+    },
+    {
+      "id": 80,
+      "slug": "strings_80",
+      "topic": "Строки",
+      "title": "Докстринги и __doc__",
+      "description": "Отработать документирование функций.\n\n- double(n) -> int — c докстрингом 'This Func doubles arg';\n- docstring_of(function) -> str — докстринг или '';\n- describe(function) -> str — 'double: This Func doubles arg'.",
+      "status": "solved",
+      "source": "HSEtasks/basics/dogstring.py"
+    },
+    {
+      "id": 81,
+      "slug": "lists_81",
+      "topic": "Списки",
+      "title": "Списки: сортировка, вставка, объединение",
+      "description": "Отработать sorted против sort, insert против замены.\n\n- sorted_desc(items) -> list — новая копия, исходный не меняется;\n- insert_at(items, index, value) -> None — вставка без удаления соседа;\n- merge_lists(items, others) -> list — новый список.",
+      "status": "solved",
+      "source": "HSEtasks/basics/list_dict_set_tuple/lists.py"
+    },
+    {
+      "id": 82,
+      "slug": "sets_82",
+      "topic": "Множества",
+      "title": "Операции над множествами",
+      "description": "Четыре операции над множествами.\n\n- union(first, second), intersection, symmetric_difference, difference.\n\nТесты сравнивают результат с операторами |, &, ^, -.",
+      "status": "solved",
+      "source": "HSEtasks/basics/list_dict_set_tuple/sets.py"
+    },
+    {
+      "id": 83,
+      "slug": "lists_83",
+      "topic": "Списки",
+      "title": "Кортежи",
+      "description": "Отработать неизменяемость кортежа.\n\n- add_to_tuple(items, value) -> tuple — новый кортеж, исходный не трогаем;\n- safe_index(items, value) -> int — индекс или -1 вместо ValueError.",
+      "status": "solved",
+      "source": "HSEtasks/basics/list_dict_set_tuple/tuple.py"
+    },
+    {
+      "id": 84,
+      "slug": "dicts_84",
+      "topic": "Словари",
+      "title": "Словари: слияние и get",
+      "description": "Отработать | для словарей, get с дефолтом и выбор максимального ключа.\n\n- merge_dicts(first, second) -> dict — при совпадении побеждает second, исходные не меняются;\n- increment(data, key, delta=1) -> int;\n- key_with_max_value(data) -> str | None — при ничьей имя ключа решает, пустой словарь -> None.",
+      "status": "solved",
+      "source": "HSEtasks/basics/list_dict_set_tuple/dictionary.py"
+    },
+    {
+      "id": 85,
+      "slug": "strings_85",
+      "topic": "Строки",
+      "title": "Идиомы Python",
+      "description": "Собрать типичные питоновские идиомы.\n\n- chunks(items, size) -> list[list] — разбить на порции, size <= 0 -> ValueError;\n- enumerate_pairs(items) -> list[str] — 'индекс:значение';\n- is_all_even(numbers) -> bool — через all (для [] истинно);\n- any_negative(numbers) -> bool — через any.",
+      "status": "solved",
+      "source": "HSEtasks"
+    },
+    {
+      "id": 86,
+      "slug": "errors_86",
+      "topic": "Исключения",
+      "title": "try/except/else/finally и свои исключения",
+      "description": "Обработка исключений и создание собственных.\n\n- ValidationError(Exception) — своя ошибка;\n- parse_range(value, low=5, high=9) -> int — вне диапазона или не число -> ValidationError;\n- safe_div(a, b, default=None) -> float | None — деление на ноль -> default.",
+      "status": "solved",
+      "source": "HSEtasks/basics/try_except.py"
+    }
+  ]
+}
