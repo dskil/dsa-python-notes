@@ -8,14 +8,56 @@
 Алгоритмический тренажёр на Python: **86 задач**, у каждой — условие,
 готовое решение и собственный набор тестов. Одна задача — одна папка,
 один тестовый файл, одна команда для проверки. Прогресс считается локально.
+
 ```text
 $ dsa-trainer run 47
 
 tests/test_recursion_47.py ......................           [100%]
-22 passed in 0.03s
+15 passed in 0.16s
 
 Задача №47 решена ✓ (Ханойские башни)
 ```
+
+## Быстрый старт для человека, который хочет порешать
+
+Не нужно ничего устанавливать в систему: достаточно Python 3.10+ и git.
+
+1. Склонируй репозиторий и зайди в него.
+2. Посмотри, какие задачи есть, и выбери одну.
+3. Запусти её тест — увидишь `passed` или `FAILED`.
+4. Если `FAILED` — открой файл в `solutions/`, напиши функцию и повтори шаг 3.
+
+```bash
+git clone https://github.com/dskil/dsa-python-notes.git
+cd dsa-python-notes
+pip install -r requirements-dev.txt
+
+python -m dsa_trainer list            # (когда пакет установлен через pip install -e .)
+dsa-trainer show 47                   # условие задачи №47
+dsa-trainer run 47                    # запустить её тесты
+```
+
+Конкретный пример «человек взял задачу №47 и решает» — в
+[docs/HOW_TO_PLAY.md](docs/HOW_TO_PLAY.md), включая пошаговый разбор вывода
+pytest и работу в Git Bash.
+
+Если пакет не ставил — те же команды работают как модуль:
+
+```bash
+# Git Bash / Linux / macOS
+cd /d/codes/dsa-python-notes
+PYTHONPATH=src python -m dsa_trainer list
+PYTHONPATH=src python -m dsa_trainer run 47
+
+# PowerShell
+cd D:\codes\dsa-python-notes
+$env:PYTHONPATH = "src"
+python -m dsa_trainer run 47
+```
+
+В Git Bash путь пишется с прямыми слэшами: `/d/codes/dsa-python-notes`.
+`cd D:\codes\dsa-python-notes` в Git Bash ломается — обратный слэш он
+считает экранированием.
 
 ## Что внутри
 
