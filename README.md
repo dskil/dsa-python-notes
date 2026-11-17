@@ -1,6 +1,6 @@
 # Алгоритмы на Python — тренажёр с проверкой
 
-[![tests](https://github.com/USERNAME/dsa-python-notes/actions/workflows/tests.yml/badge.svg)](https://github.com/USERNAME/dsa-python-notes/actions/workflows/tests.yml)
+[![tests](https://github.com/dskil/dsa-python-notes/actions/workflows/tests.yml/badge.svg)](https://github.com/dskil/dsa-python-notes/actions/workflows/tests.yml)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)

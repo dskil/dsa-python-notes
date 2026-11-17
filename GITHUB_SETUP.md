@@ -17,15 +17,11 @@ git remote add origin https://github.com/dskil/dsa-python-notes.git
 git push -u origin main
 ```
 
-## 2. Заменить плейсхолдер бейджа
+## 2. Бейдж уже с твоим логином
 
-В README строка бейджа tests содержит `USERNAME`. Замени на свой логин
-`dskil`, иначе картинка не отрисуется:
-
-```bash
-# Windows PowerShell
-(Get-Content README.md) -replace 'USERNAME', 'dskil' | Set-Content README.md
-```
+В README все ссылки ведут на `dskil/dsa-python-notes`, ничего менять не нужно.
+Если позже поменяешь логин или имя репозитория — замени `dskil` и
+`dsa-python-notes` в первом бейдже README.
 
 ## 3. Включить Actions
 
