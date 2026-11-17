@@ -21,43 +21,29 @@ tests/test_recursion_47.py ......................           [100%]
 ## Быстрый старт для человека, который хочет порешать
 
 Не нужно ничего устанавливать в систему: достаточно Python 3.10+ и git.
-
-1. Склонируй репозиторий и зайди в него.
-2. Посмотри, какие задачи есть, и выбери одну.
-3. Запусти её тест — увидишь `passed` или `FAILED`.
-4. Если `FAILED` — открой файл в `solutions/`, напиши функцию и повтори шаг 3.
+Одна команда показывает условие задачи и сразу прогоняет её тесты:
 
 ```bash
 git clone https://github.com/dskil/dsa-python-notes.git
 cd dsa-python-notes
 pip install -r requirements-dev.txt
 
-python -m dsa_trainer list            # (когда пакет установлен через pip install -e .)
-dsa-trainer show 47                   # условие задачи №47
-dsa-trainer run 47                    # запустить её тесты
+python tools/start.py 33      # условие задачи №33 + запуск её тестов
+python tools/start.py         # первая нерешённая задача
+python tools/start.py --list  # каталог задач со статусами
 ```
 
-Конкретный пример «человек взял задачу №47 и решает» — в
-[docs/HOW_TO_PLAY.md](docs/HOW_TO_PLAY.md), включая пошаговый разбор вывода
-pytest и работу в Git Bash.
+Цикл работы максимально короткий:
 
-Если пакет не ставил — те же команды работают как модуль:
+1. `python tools/start.py 33` — прочитал условие, увидел красный тест.
+2. Открыл `solutions/recursion_33/recursion_33.py`, написал функцию.
+3. Снова `python tools/start.py 33` — зелёное = решено.
 
-```bash
-# Git Bash / Linux / macOS
-cd /d/codes/dsa-python-notes
-PYTHONPATH=src python -m dsa_trainer list
-PYTHONPATH=src python -m dsa_trainer run 47
+Полная инструкция (как читать вывод pytest, что делать с ошибками,
+работа в Git Bash) — [docs/HOW_TO_PLAY.md](docs/HOW_TO_PLAY.md).
 
-# PowerShell
-cd D:\codes\dsa-python-notes
-$env:PYTHONPATH = "src"
-python -m dsa_trainer run 47
-```
-
-В Git Bash путь пишется с прямыми слэшами: `/d/codes/dsa-python-notes`.
-`cd D:\codes\dsa-python-notes` в Git Bash ломается — обратный слэш он
-считает экранированием.
+Если поставил пакет через `pip install -e .`, те же вещи доступны как
+`dsa-trainer list` / `show` / `run` / `stats`.
 
 ## Что внутри
 
