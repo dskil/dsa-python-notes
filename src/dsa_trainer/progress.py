@@ -28,6 +28,7 @@ def repo_root() -> Path:
 
 
 def load_progress() -> dict[str, dict[str, str]]:
+    """Прочитать журнал. Битые файлы и неожиданные типы — пустой словарь."""
     path = attempts_path()
     if not path.exists():
         return {}
